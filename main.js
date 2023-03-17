@@ -21,6 +21,7 @@ function getPlayerChoice() {
 
     if (playerChoice !== 'Rock' && playerChoice !== 'Paper' && playerChoice !== 'Scissors') {
         document.querySelector('.player').textContent = `Player: Please choose a valid option`
+        document.querySelector('.results').textContent = ''
     } else {
         document.querySelector('.player').textContent = `Player: ${playerChoice}!`
     }
@@ -35,10 +36,12 @@ function playRound() {
     console.log(`P1: ${playerSelection}, CPU: ${computerSelection}`)
 
     if (playerSelection === 'Rock' && computerSelection === 1 || playerSelection === 'Paper' && computerSelection === 2 || playerSelection === 'Scissors' && computerSelection === 3) {
-        console.log("TIE")
+        document.querySelector('.results').textContent = "IT'S A TIE!"
     } else if (playerSelection === 'Rock' && computerSelection === 2 || playerSelection === 'Paper' && computerSelection === 3 || playerSelection === 'Scissors' && computerSelection === 1) {
-        console.log("LOSE")
+        document.querySelector('.results').textContent = "YOU LOSE!"
+    } else if (playerSelection === 'Rock' && computerSelection === 3 || playerSelection === 'Paper' && computerSelection === 1 || playerSelection === 'Scissors' && computerSelection === 2) {
+        document.querySelector('.results').textContent = "YOU WIN!"
     } else {
-        console.log("WIN")
+        document.querySelector('.results').textContent = ''
     }
 }
