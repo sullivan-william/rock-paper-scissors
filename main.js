@@ -4,14 +4,20 @@ function getComputerChoice () {
     console.log(computerSelection)
 
     if (computerSelection === 1) {
-        computer.textContent = "Rock!"
+        computer.textContent = "CPU: Rock!"
     } else if (computerSelection === 2) {
-        computer.textContent = "Paper!"
+        computer.textContent = "CPU: Paper!"
     } else if (computerSelection === 3) {
-        computer.textContent = "Scissors!"
+        computer.textContent = "CPU: Scissors!"
     } else {
         computer.textContent = "ERROR"
     }
 }
 
-getComputerChoice()
+function getPlayerChoice() {
+    let playerSelection = document.getElementById("player").value.toLowerCase()
+    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
+    document.querySelector('.player').textContent = `Player: ${playerSelection}!`
+}
+
+const computerSelection = getComputerChoice()
