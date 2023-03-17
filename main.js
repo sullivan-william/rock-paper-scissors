@@ -1,13 +1,13 @@
 function getComputerChoice () {
     let computer = document.querySelector('.computer')
-    let computerSelection = Math.floor(Math.random() * 3) + 1
-    console.log(computerSelection)
+    let computerChoice = Math.floor(Math.random() * 3) + 1
+    console.log(computerChoice)
 
-    if (computerSelection === 1) {
+    if (computerChoice === 1) {
         computer.textContent = "CPU: Rock!"
-    } else if (computerSelection === 2) {
+    } else if (computerChoice === 2) {
         computer.textContent = "CPU: Paper!"
-    } else if (computerSelection === 3) {
+    } else if (computerChoice === 3) {
         computer.textContent = "CPU: Scissors!"
     } else {
         computer.textContent = "ERROR"
@@ -15,9 +15,16 @@ function getComputerChoice () {
 }
 
 function getPlayerChoice() {
-    let playerSelection = document.getElementById("player").value.toLowerCase()
-    playerSelection = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1)
-    document.querySelector('.player').textContent = `Player: ${playerSelection}!`
-}
+    let playerChoice = document.getElementById("player").value.toLowerCase()
+    playerChoice = playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)
 
-const computerSelection = getComputerChoice()
+    if (playerChoice !== 'Rock' && playerChoice !== 'Paper' && playerChoice !== 'Scissors') {
+        document.querySelector('.player').textContent = `Player: Please choose a valid option`
+        console.log(playerChoice)
+    } else {
+        document.querySelector('.player').textContent = `Player: ${playerChoice}!`
+        console.log(playerChoice)
+    }
+
+    getComputerChoice()
+}
