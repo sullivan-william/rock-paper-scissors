@@ -1,3 +1,7 @@
+let p1 = 0
+let cpu = 0
+
+
 function getComputerChoice () {
     let computer = document.querySelector('.computer')
     let computerChoice = Math.floor(Math.random() * 3) + 1
@@ -33,14 +37,18 @@ function playRound() {
     let playerSelection = getPlayerChoice()
     let computerSelection = getComputerChoice()
 
-    console.log(`P1: ${playerSelection}, CPU: ${computerSelection}`)
+    // console.log(`P1: ${playerSelection}, CPU: ${computerSelection}`)
 
     if (playerSelection === 'Rock' && computerSelection === 1 || playerSelection === 'Paper' && computerSelection === 2 || playerSelection === 'Scissors' && computerSelection === 3) {
         document.querySelector('.results').textContent = "IT'S A TIE!"
     } else if (playerSelection === 'Rock' && computerSelection === 2 || playerSelection === 'Paper' && computerSelection === 3 || playerSelection === 'Scissors' && computerSelection === 1) {
         document.querySelector('.results').textContent = "YOU LOSE!"
+        cpu += 1
+        console.log(`CPU: ${cpu}`)
     } else if (playerSelection === 'Rock' && computerSelection === 3 || playerSelection === 'Paper' && computerSelection === 1 || playerSelection === 'Scissors' && computerSelection === 2) {
         document.querySelector('.results').textContent = "YOU WIN!"
+        p1 += 1
+        console.log(`P1: ${p1}`)
     } else {
         document.querySelector('.results').textContent = ''
     }
