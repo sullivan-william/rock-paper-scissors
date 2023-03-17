@@ -1,7 +1,6 @@
 function getComputerChoice () {
     let computer = document.querySelector('.computer')
     let computerChoice = Math.floor(Math.random() * 3) + 1
-    console.log(computerChoice)
 
     if (computerChoice === 1) {
         computer.textContent = "CPU: Rock!"
@@ -12,6 +11,8 @@ function getComputerChoice () {
     } else {
         computer.textContent = "ERROR"
     }
+
+    return computerChoice
 }
 
 function getPlayerChoice() {
@@ -20,11 +21,24 @@ function getPlayerChoice() {
 
     if (playerChoice !== 'Rock' && playerChoice !== 'Paper' && playerChoice !== 'Scissors') {
         document.querySelector('.player').textContent = `Player: Please choose a valid option`
-        console.log(playerChoice)
     } else {
         document.querySelector('.player').textContent = `Player: ${playerChoice}!`
-        console.log(playerChoice)
     }
 
-    getComputerChoice()
+    return playerChoice
+}
+
+function playRound() {
+    let playerSelection = getPlayerChoice()
+    let computerSelection = getComputerChoice()
+
+    console.log(`P1: ${playerSelection}, CPU: ${computerSelection}`)
+
+    if (playerSelection === 'Rock' && computerSelection === 1 || playerSelection === 'Paper' && computerSelection === 2 || playerSelection === 'Scissors' && computerSelection === 3) {
+        console.log("TIE")
+    } else if (playerSelection === 'Rock' && computerSelection === 2 || playerSelection === 'Paper' && computerSelection === 3 || playerSelection === 'Scissors' && computerSelection === 1) {
+        console.log("LOSE")
+    } else {
+        console.log("WIN")
+    }
 }
