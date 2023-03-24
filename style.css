@@ -1,4 +1,31 @@
 body {
     background-color: black;
-    color: gold;
+    display: flex;
+    flex-direction: column;
+    color: azure;
+}
+
+#options {
+    display: flex;
+    justify-content: space-around;
+    border: solid rosybrown 3px;
+    padding: 16px;
+}
+
+h1 {
+    display: flex;
+    padding: 16px;
+    text-align: center;
+    color: goldenrod;
+    border-bottom: double goldenrod 5px;
+}
+
+h2 {
+    color: rosybrown;
+    text-align: center;
+}
+
+#info {
+    display: flex;
+    justify-content: space-around;
 }
