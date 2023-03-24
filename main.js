@@ -13,6 +13,9 @@ for (button of buttons) {
         getComputerChoice()
         console.log(`CPU: ${computerChoice}`)
 
+        let human = document.querySelector('.human')
+        human.textContent = `P1: ${playerChoice}!`
+
         playRound(playerChoice, computerChoice)
     })
 }
@@ -38,7 +41,9 @@ function getComputerChoice () {
 function playRound(playerSelection, computerSelection) {
 
     let results = document.querySelector('.results')
-    let score = document.querySelector('.score')
+    let computerScore = document.querySelector('.computer-score')
+    let humanScore = document.querySelector('.human-score')
+    let score = document.querySelector('.final')
 
     if (playerSelection === 'Rock' && computerSelection === 1 || playerSelection === 'Paper' && computerSelection === 2 || playerSelection === 'Scissors' && computerSelection === 3) {
         results.textContent = "IT'S A TIE!"
@@ -52,7 +57,8 @@ function playRound(playerSelection, computerSelection) {
         results.textContent = ''
     }
 
-    score.textContent = `CPU: ${cpu} vs P1: ${p1}`
+    computerScore.textContent = `CPU: ${cpu}`
+    humanScore.textContent = `P1: ${p1}`
 
     // First to 5
     if (cpu === 5) {
