@@ -45,26 +45,26 @@ function playRound(playerSelection, computerSelection) {
     } else if (playerSelection === 'Rock' && computerSelection === 2 || playerSelection === 'Paper' && computerSelection === 3 || playerSelection === 'Scissors' && computerSelection === 1) {
         results.textContent = "YOU LOSE!"
         cpu += 1
-        score.textContent = `CPU: ${cpu} vs P1: ${p1}`
     } else if (playerSelection === 'Rock' && computerSelection === 3 || playerSelection === 'Paper' && computerSelection === 1 || playerSelection === 'Scissors' && computerSelection === 2) {
         results.textContent = "YOU WIN!"
         p1 += 1
-        score.textContent = `CPU: ${cpu} vs P1: ${p1}`
     } else {
         results.textContent = ''
     }
 
-    // Best of 5
-    // if (cpu === 3) {
-    //     console.log("LOSE")
-    //     cpu = 0
-    //     p1 = 0
-    //     document.querySelector('.score').textContent = 'CPU wins! Try again?'
-    // } else if (p1 === 3) {
-    //     console.log("WIN")
-    //     cpu = 0
-    //     p1 = 0
-    //     document.querySelector('.score').textContent = 'You win! Go again?'
-    // }
+    score.textContent = `CPU: ${cpu} vs P1: ${p1}`
+
+    // First to 5
+    if (cpu === 5) {
+        console.log("LOSE")
+        cpu = 0
+        p1 = 0
+        score.textContent = 'CPU wins! Try again?'
+    } else if (p1 === 5) {
+        console.log("WIN")
+        cpu = 0
+        p1 = 0
+        score.textContent = 'You win! Go again?'
+    }
 
 }
